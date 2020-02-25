@@ -28,16 +28,50 @@
             <div class="container-lg">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Custom Generation</h2>
+                        <h2>Protect Your Data</h2>
                     </div>
                     <div class="card-body form-group">
-                        <textarea class="form-control"
-                            id="password"
-                            placeholder="I don't know why this won't show up"
-                            readonly
-                            aria-label="Generated Password">
-                        </textarea>
-                        <button onclick="generatePassword()" class="btn btn-success btn-block">Begin</button>
+
+                        <div id="password-options" class="form-control container-lg">
+                            
+                            <div class="form-row">
+                                <div class="form-group col-lg-12">
+                                    <label for="inputPasswordLength" class="form-group"><h3>Enter desired password length.</h3></label>
+                                    <input id="password-length" type="number" class="form-control"></input> 
+                                    <small id="password-length-help" class="form-text text-muted">
+                                        Please enter a number between 8 and 128.
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="uppercase"><h3>Do you require uppercase letters?</h3></label>
+                                </div>
+                                <div class="row button-choices"> 
+                                    <button onclick="chooseUppercase()" id="yes-uppercase" class="col-lg-6 btn btn-outline-secondary" name="yesOrNo">Yes</button>
+                                    <button class="col-lg-6 btn btn-outline-secondary" name="yesOrNo">No</button>
+                                </div>
+                            </div>
+                            
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label for="specialCharacters" class="form-group"><h3>
+                                        Do you require special characters? (,./!@#$%^&*) 
+                                    </h3></label>
+                                </div>
+                                <div class="row button-choices"> 
+                                        <button class="col-lg-6 btn btn-outline-secondary" name="yesOrNo">Yes</button>
+                                        <button class="col-lg-6 btn btn-outline-secondary" name="yesOrNo">No</button>
+                                </div>
+                                
+                            </fieldset>
+                            
+                        </div>
+
+                        <textarea id="password" class="form-control" placeholder="Click the 'Begin' button to get started." readonly></textarea>
+
+                        <button id="begin-button" onclick="displayOptions()" class="btn btn-success btn-block btn-lg">Begin</button>
+                        <button id="generate-button" onclick="chooseUppercase(), generatePassword()" class="btn btn-success btn-block btn-lg">Generate</button>
                     </div>
                 </div>
             </div>

@@ -21,25 +21,40 @@ h2 {
     background-color:rgba(255, 72, 0, 0.384);
     text-align: center;
 }
-textarea {
+
+/* shared properties between the result boxes */
+#password-options, textarea.form-control {
+    height: auto;
     margin-bottom: 1.25rem;
 }
-textarea.form-control {
-    height: 6rem;
+
+/* Password customization boxes */
+#password-options {
+    display: none;
 }
 
-#password {
-    /* visibility: hidden; */
-}
-
-
-button {
+.btn {
     font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
 }
+.button-choices {
+    padding: 1rem;
+}
+
+#generate-button {
+    display: none;
+}
+
 #wrapper {
     margin-top: 2em;
 }
 #password {
     margin-left: auto;
     margin-right: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: 40px;
+    }
 }
