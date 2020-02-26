@@ -32,13 +32,23 @@ h2 {
 #password-options {
     display: none;
 }
+.yes-no {
+    display: none;
+}
 
 .btn {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
 }
+.btn-block + .btn-block {
+    margin: 0;
+}
+#length-button {
+    margin-top: .5rem;
+}
+
 .button-choices {
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
 #generate-button {
