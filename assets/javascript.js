@@ -113,47 +113,72 @@ function unChooseSpecial() {
 	}; 
 };
 
-// Returns random number between 0 and 9 when x=1.
-function randomN(x) { 
-	return Math.floor(Math.random(x)*10);
+// Returns random number between 0 and y when x=1.
+function randomN(x,y) { 
+	return Math.floor(Math.random(x)*y);
 }
 
-// Write password to the #password textarea
+// Write password to the #password textarea	
 function writePassword() {
 	var newPasswordField = document.getElementById("password");
 	var specialChar = (",./!@#$%^&*~").split("");
 	var password = []; // Empty array to hold the password before appending it to newPasswordField
 
-	if (passwordLength < 8 || passwordLength > 128 || passwordLength === undefined) {
-		alert("Please enter valid password length and click 'Confirm.'");
-	} else {
-
+	if (passwordLength >= 8 && passwordLength <= 128) {
 		// this loop runs for the number that user entered
-		for (i=0; i <= (passwordLength); i++) {
+		for (i=0; i < (passwordLength); i++) {
 			// Randomized non-numerical variables here
-			var randomLetter = alphabet[randomN(1)];
-			var randomLetterUp = alphabet[randomN(1)].toUpperCase();
-			var randomSpecial = specialChar[randomN(1)];
-			var randomCharacter = (randomLetter + randomLetterUp + randomN(1) + randomSpecial);
-			// console.log(randomCharacter);
-			console.log("Random letter " + randomLetter);
-			console.log("Random UP " + randomLetterUp);
-			console.log("Random special " + randomSpecial);
-			console.log("random number " + randomN(1));
-			console.log(randomCharacter);
-			console.log(randomCharacter[randomN(1)]);
-	
+			var randomLetter = alphabet[randomN(1,26)];
+			var randomLetterUp = alphabet[randomN(1,26)].toUpperCase();
+			var randomSpecial = specialChar[randomN(1,12)];
+
+			// All different randomized combinations. Lowercase letters always included to keep this simple
+			var randomCharacterAll = (randomLetter + randomLetterUp + randomN(1,10) + randomSpecial);
+
+			var randomNoNumbers = (randomLetter + randomLetterUp + randomSpecial);
+			var randomNoUp = (randomLetter + randomSpecial + randomN(1,10));
+			var randomNoSpecial = (randomLetter + randomLetterUp + randomN(1,10));
+
+			var onlyRandomUp = (randomLetter + randomLetterUp);
+			var onlyRandomNumbers = (randomLetter + randomN(1,10));
+			var onlyRandomSpecial = (randomLetter + randomSpecial);
+			
 			if (userCase && userNumbers && userSpecial) {
-				console.log(randomCharacter[randomN(1)]);
 				// Adds new random character to password[] array
-				password.push(randomCharacter[randomN(1)]);
-			} else {
+				password.push(randomCharacterAll[randomN(1,4)]);
+
+			} else if (userCase && userSpecial) {
+				password.push(randomNoNumbers[randomN(1,3)]);
+
+			} else if (userSpecial && userNumbers) {
+				password.push(randomNoUp[randomN(1,3)]);
+
+			} else if (userCase && userNumbers) {
+				password.push(randomNoSpecial[randomN(1,3)]);
+
+			} else if (userCase) {
+				password.push(onlyRandomUp[randomN(1,2)]);
+
+			} else if (userNumbers) {
+				password.push(onlyRandomNumbers[randomN(1,2)]);
+				
+			} else if (userSpecial) {
+				password.push(onlyRandomSpecial[randomN(1,2)]);
+			}
+			else {
 				password.push(randomLetter);
 			}
 		}
 		// end of for loop
+		newPasswordField.style.fontFamily = "'consolas', sans-serif";
+		newPasswordField.style.fontSize = "3rem";
+		newPasswordField.style.backgroundColor = "lightgreen";
+		newPasswordField.style.textAlign = "center";
+		newPasswordField.style.height = "6rem";
 		var newPasswordString = password.join("");
 		newPasswordField.innerHTML = newPasswordString;
+	} else {
+		alert("Please enter valid password length and click 'Confirm.'");
 	}
 	
 }

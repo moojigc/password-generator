@@ -43,6 +43,7 @@ h2 {
 .btn-block + .btn-block {
     margin: 0;
 }
+
 #length-button {
     margin-top: .5rem;
 }
