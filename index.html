@@ -5,17 +5,58 @@
     <meta charset="UTF-8">
     <title>A Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/my_default_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Montserrat|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/media.css">
 </head>
 
 <body>
 
     <header id="header-en">
+        <!-- Hidden img on desktop -->
+        <div class="mobile-logo-container mobile">
+            <img id="mobile-image" class="navbar-brand mobile" src="assets/images/moojig-logo-white.png" alt="Moojig-logo">
+        </div>
+        <!-- Desktop navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark desktop">
-            <a href="https://moojigc.github.io/index.html"><img class="navbar-brand desktop" src="assets/images/moojig-logo-white.png" alt="Moojig-logo"></a>
+            <img class="navbar-brand desktop" src="assets/images/moojig-logo-white.png" alt="Moojig-logo">
+
+            <div id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://moojigc.github.io/index.html">About <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://moojigc.github.io/portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://moojigc.github.io/contact.html">Contact</a>
+                </li>
+                <a href="" onclick="error()" class="btn btn-primary language-button">
+                    日本語
+                </a>
+              </ul>
+            </div>
         </nav>
+        <!-- Mobile navbar -->
+        <div class="navbar navbar-expand-lg navbar-light bg-light mobile">
+            <div id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://moojigc.github.io/index.html">About <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="https://moojigc.github.io/portfolio.html">Portfolio</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="https://moojigc.github.io/contact.html">Contact</a>
+                      </li>
+                      <a href="" onclick="error()" class="btn btn-primary language-button">
+                        日本語
+                        </a>
+                </ul>
+              </div>
+        </div>
     </header>
 
     <div id="wrapper" class="container-lg">
@@ -38,7 +79,7 @@
                                 <div class="form-group col-lg-12">
                                     <label for="inputPasswordLength" class="form-group"><h3>Enter desired password length.</h3></label>
                                     <input id="password-length" onclick="clearLengthField()" type="number" placeholder="Please enter a number from 8 to 128." class="form-control" value=""></input> 
-                                    <button id="length-button" onclick="chooseLength()" class="btn btn-success">Confirm</button>
+                                    <button id="length-button" onclick="chooseLength()" class="btn btn-primary">Confirm</button>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -84,7 +125,7 @@
 
                         <textarea id="password" class="form-control" placeholder="Click the 'Begin' button to get started." readonly></textarea>
 
-                        <button id="begin-button" onclick="displayOptions()" class="btn btn-success btn-block btn-lg">Begin</button>
+                        <button id="begin-button" onclick="displayOptions()" class="btn btn-primary btn-block btn-lg">Begin</button>
                         <button id="generate-button" onclick="writePassword()" class="btn btn-success btn-block btn-lg">Generate</button>
                     </div>
                 </div>
@@ -94,4 +135,9 @@
     </div>
     <footer>© Munkhtsogt Battsogt 2020</footer>
     <script src="assets/javascript.js"></script>
+    <script type="text/javascript">
+        function error() {
+            alert("This page has not been translated. このページはまだ翻訳されていません。");
+        }
+    </script>
 </body>

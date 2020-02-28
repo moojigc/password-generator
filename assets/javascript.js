@@ -10,8 +10,6 @@ var userNumbers = false;
 var userSpecial = false;
 var passwordLength = undefined;
 
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
 
 // Displays password options
 function displayOptions() {
@@ -161,7 +159,7 @@ function writePassword() {
 
 			} else if (userNumbers) {
 				password.push(onlyRandomNumbers[randomN(1,2)]);
-				
+
 			} else if (userSpecial) {
 				password.push(onlyRandomSpecial[randomN(1,2)]);
 			}
@@ -170,13 +168,28 @@ function writePassword() {
 			}
 		}
 		// end of for loop
-		newPasswordField.style.fontFamily = "'consolas', sans-serif";
-		newPasswordField.style.fontSize = "3rem";
-		newPasswordField.style.backgroundColor = "lightgreen";
-		newPasswordField.style.textAlign = "center";
-		newPasswordField.style.height = "6rem";
-		var newPasswordString = password.join("");
-		newPasswordField.innerHTML = newPasswordString;
+		if (userSpecial === false && userCase === false && userNumbers === false && passwordLength < 10) {
+			var insecurePasswordOkay = confirm("This password may not be secure. Are you sure you wish to proceed?");
+			if (insecurePasswordOkay) {
+				newPasswordField.style.fontFamily = "'consolas', sans-serif";
+				newPasswordField.style.fontSize = "3rem";
+				newPasswordField.style.backgroundColor = "lightgreen";
+				newPasswordField.style.textAlign = "center";
+				// newPasswordField.style.height = "6rem";
+				var newPasswordString = password.join("");
+				newPasswordField.innerHTML = newPasswordString;
+			} else {
+				alert("A longer password or more types of characters are recommended.")
+			};		
+		} else {
+			newPasswordField.style.fontFamily = "'consolas', sans-serif";
+			newPasswordField.style.fontSize = "3rem";
+			newPasswordField.style.backgroundColor = "lightgreen";
+			newPasswordField.style.textAlign = "center";
+			// newPasswordField.style.height = "6rem";
+			var newPasswordString = password.join("");
+			newPasswordField.innerHTML = newPasswordString;
+		}
 	} else {
 		alert("Please enter valid password length and click 'Confirm.'");
 	}
