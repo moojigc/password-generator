@@ -136,7 +136,7 @@ var yesSpecial = document.getElementById("yes-special");
 var noSpecial = document.getElementById("no-special");
 // Adds special characters
 function chooseSpecial() {	
-	document.getElementById("special-toggle").style.display = "none";
+	this.style.display = "none";
 	yesSpecial.style.display = "block";
 	userSpecial = true;
 };
@@ -164,9 +164,9 @@ function randomN(x,y) {
 }
 generatedArray=[];
 
+var newPasswordField = document.getElementById("password");
 // Write password to the #password textarea	
 function writePassword() {
-	var newPasswordField = document.getElementById("password");
 	var specialChar = (",./!@#$%^&*~").split("");
 	var password = []; // Empty array to hold the password before appending it to newPasswordField
 
@@ -226,6 +226,7 @@ function writePassword() {
 				// newPasswordField.style.height = "6rem";
 				var newPasswordString = password.join("");
 				newPasswordField.innerHTML = newPasswordString;
+				document.querySelector("#copy-button").style.display = "block";
 			} else {
 				alert("A longer password or more types of characters are recommended.")
 			};		
@@ -237,6 +238,7 @@ function writePassword() {
 			// newPasswordField.style.height = "6rem";
 			var newPasswordString = password.join("");
 			newPasswordField.innerHTML = newPasswordString;
+			document.querySelector("#copy-button").style.display = "block";
 		}
 	} else {
 		alert("Please enter valid password length and click 'Confirm.'");
@@ -248,6 +250,13 @@ function writePassword() {
 	
 }
 
+// Copy to clipboard
+function copyText() {
+	newPasswordField.select();
+	newPasswordField.setSelectionRange(0, 99999)
+	document.execCommand("copy");	
+}
+document.getElementById("copy-button").addEventListener("click", copyText);
 
 // EventListeners
 generateButton.addEventListener("click", writePassword);
