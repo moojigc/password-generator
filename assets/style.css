@@ -50,6 +50,12 @@ h2 {
     margin: 0;
 }
 
+.dividing-lines {
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    height: auto;
+}
+
 /* Footer */
 footer {
     position: fixed;

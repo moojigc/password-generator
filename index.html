@@ -75,58 +75,58 @@
 
                         <div id="password-options" class="form-control container-lg">
                             
-                            <div class="form-row">
+                            <div class="form-row dividing-lines">
                                 <div class="form-group col-lg-12">
                                     <label for="inputPasswordLength" class="form-group"><h3>Enter desired password length.</h3></label>
-                                    <input id="password-length" onclick="clearLengthField()" type="number" placeholder="Please enter a number from 8 to 128." class="form-control" value=""></input> 
-                                    <button id="length-button" onclick="chooseLength()" class="btn btn-primary">Confirm</button>
+                                    <input id="password-length" type="number" placeholder="Please enter a number from 8 to 128." class="form-control" value=""></input> 
+                                    <button id="length-button" class="btn btn-primary">Confirm</button>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group dividing-lines">
                                 <div class="row">
                                     <label for="uppercase"><h3>Do you require uppercase letters?</h3></label>
                                 </div>
                                 <div class="row button-choices">
-                                    <button onclick="chooseCase()" id="case-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
-                                    <button onclick="unChooseCase()" id="yes-uppercase" class="yes-no btn btn-block btn-secondary">Yes</button>
-                                    <button onclick="unChooseCase()" id="no-uppercase" class="yes-no btn btn-block btn-secondary">No</button>
+                                    <button id="case-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
+                                    <button id="yes-uppercase" class="yes-no btn btn-block btn-success">Yes</button>
+                                    <button id="no-uppercase" class="yes-no btn btn-block btn-outline-danger">No</button>
                                 </div>
                             </div>
                             
-                            <fieldset class="form-group">
+                            <div class="form-group dividing-lines">
                                 <div class="row">
                                     <label for="specialCharacters" class="form-group"><h3>
                                         Do you require numbers?
                                     </h3></label>
                                 </div>
-                                <div class="row button-choices"> 
-                                    <button onclick="chooseNumbers()" id="numbers-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
-                                    <button onclick="unChooseNumbers()" id="yes-numbers" class="yes-no btn btn-block btn-secondary">Yes</button>
-                                    <button onclick="unChooseNumbers()" id="no-numbers" class="yes-no btn btn-block btn-secondary">No</button>
+                                <div id="numbers-group" class="row button-choices"> 
+                                    <button id="numbers-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
+                                    <button id="yes-numbers" class="yes-no btn btn-block btn-success">Yes</button>
+                                    <button id="no-numbers" class="yes-no btn btn-block btn-outline-danger">No</button>
                                 </div>
                                 
-                            </fieldset>
+                            </div>
 
-                            <fieldset class="form-group">
+                            <div class="form-group">
                                 <div class="row">
                                     <label for="specialCharacters" class="form-group"><h3>
                                         Do you require special characters? (,./!@#$%^&*) 
                                     </h3></label>
                                 </div>
                                 <div class="row button-choices"> 
-                                    <button onclick="chooseSpecial()" id="special-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
-                                    <button onclick="unChooseSpecial()" id="yes-special" class="yes-no btn btn-block btn-secondary">Yes</button>
-                                    <button onclick="unChooseSpecial()" id="no-special" class="yes-no btn btn-block btn-secondary">No</button>
+                                    <button id="special-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
+                                    <button id="yes-special" class="yes-no btn btn-block btn-success">Yes</button>
+                                    <button id="no-special" class="yes-no btn btn-block btn-outline-danger">No</button>
                                 </div>
                                 
-                            </fieldset>
+                            </div>
                             
                         </div>
 
                         <textarea id="password" class="form-control" placeholder="Click the 'Begin' button to get started." readonly></textarea>
 
                         <button id="begin-button" onclick="displayOptions()" class="btn btn-primary btn-block btn-lg">Begin</button>
-                        <button id="generate-button" onclick="writePassword()" class="btn btn-success btn-block btn-lg">Generate</button>
+                        <button id="generate-button" class="btn btn-primary btn-block btn-lg">Generate</button>
                     </div>
                 </div>
             </div>

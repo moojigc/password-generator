@@ -19,41 +19,60 @@ function displayOptions() {
 	document.getElementById("password").innerHTML = "Your password will appear here."
 };
 
-// Saves user password length
+var lengthInputField = document.getElementById("password-length");
+// Saves user password length. Also includes validation and runs an error msg for invalid values
 function chooseLength() {
+	var errorMessage = document.createElement("smalltext");
+	errorMessage.setAttribute("id", "invalid-length-msg");
+	errorMessage.setAttribute("class", "row");
+	errorMessage.style.color = "red";
+	errorMessage.style.marginTop = ".5rem";
 	passwordLength = document.getElementById("password-length").value;
+	confirmBtn = document.getElementById("length-button");
+
 	if (passwordLength >= 8 && passwordLength <= 128) {
-		document.getElementById("password-length").style.backgroundColor="lightgreen";
+		lengthInputField.style.borderColor = "lightgreen";
+		lengthInputField.style.boxShadow = "0 0 0 0.2rem lightgreen";
 		passwordLength = document.getElementById("password-length").value;
+		if (document.getElementById("invalid-length-msg") == lengthInputField.parentElement.childNodes[5]) {
+			document.getElementById("invalid-length-msg").remove();
+		}
+		
 	} else {
-		document.getElementById("password-length").style.backgroundColor="pink";
-		alert("Password length must be between 8 and 128.");
-		passwordLength = undefined;
+		lengthInputField.style.borderColor = "pink";
+		lengthInputField.style.boxShadow = "0 0 0 0.2rem pink";
+		// This if statement prevents error message from repeating
+		if (document.getElementById("length-button") == lengthInputField.parentElement.childNodes[5]) {
+			errorMessage.innerHTML = "Please enter a valid number from 8 to 128."
+			lengthInputField.parentElement.insertBefore(errorMessage, lengthInputField.parentElement.childNodes[5]);
+			confirmBtn.setAttribute("class", "row btn btn-primary");
+		}
 	}
 }
+
+lengthInputField.addEventListener("change", chooseLength);
+
 
 // Clears password length field color when user clicks into field. doesn't work though (; ･`д･´)
 function clearLengthField() {
-	var lengthFieldColor = document.getElementById("password-length").style.backgroundColor;
-	if (lengthFieldColor !== "transparent") {
-		lengthFieldColor = "unset";
-	}
-	console.log(lengthFieldColor); //Even though it doesn't work, console still returns 'transparent'... WHAT
+	document.getElementById("password-length").style.boxShadow = "unset";
+	document.getElementById("password-length").style.border = "1px solid #ced4da";
+	document.getElementById("password-length").style.borderRadius = ".25rem";
 }
+lengthInputField.addEventListener("click", clearLengthField);
 
+
+var yesCase = document.getElementById("yes-uppercase");
+var noCase = document.getElementById("no-uppercase");
 // Adds uppercase 
 function chooseCase() {	
-	var yesUppercase = document.getElementById("yes-uppercase");
-	document.getElementById("case-toggle").style.display = "none";
-	yesUppercase.style.display = "block";
+	this.style.display = "none";
+	yesCase.style.display = "block";
 	userCase = true;
 };
 // Changes choice if user changes mind
 function unChooseCase() {
-	var yesCase = document.getElementById("yes-uppercase");
-	var noCase = document.getElementById("no-uppercase");
-
-if (yesCase.style.display === "block") {
+	if (yesCase.style.display === "block") {
 		noCase.style.display = "block";
 		yesCase.style.display = "none";
 		userCase = false;
@@ -64,14 +83,33 @@ if (yesCase.style.display === "block") {
 	}; 
 };
 
+// Event listeners
+document.getElementById("case-toggle").addEventListener("click", chooseCase);
+yesCase.addEventListener("click", unChooseCase);
+noCase.addEventListener("click", unChooseCase);
 
+
+// Creates Yes and No buttons (can't get code to work using these yet)
+// var yesButton = document.createElement("button");
+// yesButton.setAttribute("class", "btn btn-block btn-success");
+// yesButton.innerHTML = "Yes";
+
+// var noButton = document.createElement("button");
+// noButton.setAttribute("class", "btn btn-block btn-outline-danger");
+// noButton.innerHTML = "No";
+
+
+var yesNumbers = document.getElementById("yes-numbers");
+var noNumbers = document.getElementById("no-numbers");
 // Adds numbers
-function chooseNumbers() {	
-	var yesNumbers = document.getElementById("yes-numbers");
-	document.getElementById("numbers-toggle").style.display = "none";
+function chooseNumbers() {
+	this.style.display = "none";
 	yesNumbers.style.display = "block";
 	userNumbers = true;
 };
+var numbersToggle = document.getElementById("numbers-toggle");
+numbersToggle.addEventListener("click", chooseNumbers);
+
 // Changes choice if user changes mind
 function unChooseNumbers() {
 	var yesNumbers = document.getElementById("yes-numbers");
@@ -88,18 +126,22 @@ function unChooseNumbers() {
 	}; 
 };
 
+// Event listeners
+numbersToggle.addEventListener("click", chooseNumbers);
+yesNumbers.addEventListener("click", unChooseNumbers);
+noNumbers.addEventListener("click", unChooseNumbers);
+
+
+var yesSpecial = document.getElementById("yes-special");
+var noSpecial = document.getElementById("no-special");
 // Adds special characters
 function chooseSpecial() {	
-	var yesSpecial = document.getElementById("yes-special");
 	document.getElementById("special-toggle").style.display = "none";
 	yesSpecial.style.display = "block";
 	userSpecial = true;
 };
 // Changes choice if user changes mind
 function unChooseSpecial() {
-	var yesSpecial = document.getElementById("yes-special");
-	var noSpecial = document.getElementById("no-special");
-
 	if (yesSpecial.style.display === "block") {
 		noSpecial.style.display = "block";
 		yesSpecial.style.display = "none";
@@ -111,10 +153,16 @@ function unChooseSpecial() {
 	}; 
 };
 
+// Event listeners
+document.getElementById("special-toggle").addEventListener("click", chooseSpecial);
+yesSpecial.addEventListener("click", unChooseSpecial);
+noSpecial.addEventListener("click", unChooseSpecial);
+
 // Returns random number between 0 and y when x=1.
 function randomN(x,y) { 
 	return Math.floor(Math.random(x)*y);
 }
+generatedArray=[];
 
 // Write password to the #password textarea	
 function writePassword() {
@@ -193,6 +241,15 @@ function writePassword() {
 	} else {
 		alert("Please enter valid password length and click 'Confirm.'");
 	}
+	if (generatedArray.length < 101) {
+		generatedArray.push(newPasswordString);
+		console.log(generatedArray);
+	}
 	
 }
 
+
+// EventListeners
+generateButton.addEventListener("click", writePassword);
+document.querySelector("#password-length").addEventListener("click", clearLengthField);
+document.querySelector("#length-button").addEventListener("click", chooseLength);
