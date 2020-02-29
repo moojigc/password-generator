@@ -56,10 +56,10 @@ h2 {
 }
 #copy-button {
     display: none;
-    position: relative;
+    position: absolute;
     z-index: 4;
-    top: -5em;
-    right: -28.5em;
+    right: 2rem;
+    bottom: 13rem;
 }
 
 /* Footer */
