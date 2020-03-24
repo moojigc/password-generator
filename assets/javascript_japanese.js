@@ -16,7 +16,7 @@ function displayOptions() {
 	document.getElementById("password-options").style.display = "block";
 	document.getElementById("begin-button").style.display = "none";
 	generateButton.style.display = "block";
-	document.getElementById("password").innerHTML = "あなたのパスワードがここに発表します。"
+	document.getElementById("password").setAttribute('placeholder', "あなたのパスワードがここに発表します。")
 };
 
 document.getElementById("begin-button").addEventListener("click", displayOptions);
@@ -45,7 +45,7 @@ function chooseLength() {
 		lengthInputField.style.boxShadow = "0 0 0 0.2rem pink";
 		// This if statement prevents error message from repeating
 		if (document.getElementById("length-button") == lengthInputField.parentElement.childNodes[5]) {
-			errorMessage.innerHTML = "Please enter a valid number from 8 to 128."
+			errorMessage.innerHTML = "長さは無効です。８字から１２８字にならければなりません。"
 			lengthInputField.parentElement.insertBefore(errorMessage, lengthInputField.parentElement.childNodes[5]);
 			confirmBtn.setAttribute("class", "row btn btn-primary");
 		}
@@ -243,7 +243,7 @@ function writePassword() {
 			document.querySelector("#copy-button").style.display = "block";
 		}
 	} else {
-		alert("Please enter valid password length and click 'Confirm.'");
+		alert("有効な文字量を選択して下さい。");
 	}
 	if (generatedArray.length < 101) {
 		generatedArray.push(newPasswordString);

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>A Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Raleway|Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <link rel="stylesheet" type="text/css" href="assets/media.css">
 </head>
@@ -60,71 +60,68 @@
     </header>
 
     <div id="wrapper" class="container-lg">
-        <div class="row">
+        <div class="row page-h1">
             <div class="col-lg-12">
-                <h1 id="page-h1">厳重なパスワード</h1>
+                <h1>厳重なパスワード</h1>
             </div>
         </div>
         <div class="row">
             <div class="container-lg">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>あなたの個人データを守護</h2>
-                    </div>
-                    <div class="card-body form-group">
+                <div class="form-group">
 
-                        <div id="password-options" class="form-control container-lg">
-                            
-                            <div class="form-row dividing-lines">
-                                <div class="form-group col-lg-12">
-                                    <label for="inputPasswordLength" class="form-group"><h3>何字が必要ですか？</h3></label>
-                                    <input id="password-length" type="number" placeholder="数字は１から１２８入力してください。" class="form-control" value=""></input> 
-                                    <button id="length-button" class="btn btn-primary">確認</button>
-                                </div>
+                    <div id="password-options" class="form-control container-lg">
+                        
+                        <div class="form-row dividing-lines">
+                            <div class="form-group col-lg-12">
+                                <label for="inputPasswordLength" class="form-group"><h3>何字が必要ですか？</h3></label>
+                                <input id="password-length" type="number" placeholder="８から１２８の数字を入力してください。" class="form-control" value=""></input> 
+                                <button id="length-button" class="btn btn-primary">確認</button>
                             </div>
-                            <div class="form-group dividing-lines">
-                                <div class="row">
-                                    <label for="uppercase"><h3>ローマ字の大文字が必要ですか？</h3></label>
-                                </div>
-                                <div class="row button-choices">
-                                    <button id="case-toggle" class="toggle btn btn-block btn-outline-secondary">必要か不要か選択</button>
-                                    <button id="yes-uppercase" class="yes-no btn btn-block btn-success">必要</button>
-                                    <button id="no-uppercase" class="yes-no btn btn-block btn-outline-danger">不要</button>
-                                </div>
+                        </div>
+                        <div class="form-group dividing-lines">
+                            <div class="row">
+                                <label for="uppercase"><h3>ローマ字の大文字が必要ですか？</h3></label>
                             </div>
-                            
-                            <div class="form-group dividing-lines">
-                                <div class="row">
-                                    <label for="specialCharacters" class="form-group"><h3>
-                                        数字が必要ですか？
-                                    </h3></label>
-                                </div>
-                                <div id="numbers-group" class="row button-choices"> 
-                                    <button id="numbers-toggle" class="toggle btn btn-block btn-outline-secondary">必要か不要か選択</button>
-                                    <button id="yes-numbers" class="yes-no btn btn-block btn-success">必要</button>
-                                    <button id="no-numbers" class="yes-no btn btn-block btn-outline-danger">不要</button>
-                                </div>
-                                
+                            <div class="row button-choices">
+                                <button id="case-toggle" class="toggle btn btn-block btn-outline-secondary">必要か不要か選択</button>
+                                <button id="yes-uppercase" class="yes-no btn btn-block btn-success">必要</button>
+                                <button id="no-uppercase" class="yes-no btn btn-block btn-outline-danger">不要</button>
                             </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <label for="specialCharacters" class="form-group"><h3>
-                                        特殊文字が必要ですか？ 例えば：（,./!@#$%^&*） 
-                                    </h3></label>
-                                </div>
-                                <div class="row button-choices"> 
-                                    <button id="special-toggle" class="toggle btn btn-block btn-outline-secondary">必要か不要か選択</button>
-                                    <button id="yes-special" class="yes-no btn btn-block btn-success">必要</button>
-                                    <button id="no-special" class="yes-no btn btn-block btn-outline-danger">不要</button>
-                                </div>
-                                
+                        </div>
+                        
+                        <div class="form-group dividing-lines">
+                            <div class="row">
+                                <label for="specialCharacters" class="form-group"><h3>
+                                    数字が必要ですか？
+                                </h3></label>
+                            </div>
+                            <div id="numbers-group" class="row button-choices"> 
+                                <button id="numbers-toggle" class="toggle btn btn-block btn-outline-secondary">必要か不要か選択</button>
+                                <button id="yes-numbers" class="yes-no btn btn-block btn-success">必要</button>
+                                <button id="no-numbers" class="yes-no btn btn-block btn-outline-danger">不要</button>
                             </div>
                             
                         </div>
-                        <div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="specialCharacters" class="form-group"><h3>
+                                    特殊文字が必要ですか？ 例えば：（,./!@#$%^&*） 
+                                </h3></label>
+                            </div>
+                            <div class="row button-choices"> 
+                                <button id="special-toggle" class="toggle btn btn-block btn-outline-secondary">必要か不要か選択</button>
+                                <button id="yes-special" class="yes-no btn btn-block btn-success">必要</button>
+                                <button id="no-special" class="yes-no btn btn-block btn-outline-danger">不要</button>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div style="padding: 0 .75rem;">
+                        <div style="position: relative;">
                             <textarea id="password" class="form-control" placeholder="「開始」のボタンを押して始められます。" readonly></textarea>
-                            <button id="copy-button" class="btn btn-secondary">コピー</button>
+                            <button id="copy-button" class="btn btn-secondary display=">コピー</button>
                         </div>
                        
                         <button id="begin-button" class="btn btn-primary btn-block btn-lg">開始</button>

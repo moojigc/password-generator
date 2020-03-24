@@ -16,7 +16,7 @@ function displayOptions() {
 	document.getElementById("password-options").style.display = "block";
 	document.getElementById("begin-button").style.display = "none";
 	generateButton.style.display = "block";
-	document.getElementById("password").innerHTML = "Your password will appear here."
+	document.getElementById("password").setAttribute("placeholder", "Your password will appear here.");
 };
 
 document.getElementById("begin-button").addEventListener("click", displayOptions);

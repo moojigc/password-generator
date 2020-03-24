@@ -1,5 +1,6 @@
-body {
-    font-family: 'Raleway', sans-serif;
+body,html {
+    height: 100%;
+    font-family: 'Raleway', 'Noto Sans JP', sans-serif;
     font-size: 20px;
     line-height: 150%;
     background-color: rgb(131, 141, 161);
@@ -7,13 +8,24 @@ body {
     margin: 0;
     padding: 0;
 }
-h1 {    
-    font-size: 2.1em;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.row {
     margin: 0;
-    text-align: center;
 }
+
+h1 {    
+    font-family: 'Nunito', sans-serif;
+    font-size: 3em;
+    margin: 0;
+}
+.page-h1 {
+    text-align: center;
+    margin: -1rem -1rem 2rem -1rem;
+    background-color: rgba(250, 205, 135, 0.38);
+    border-radius: .2rem .2rem 0 0;
+    padding: .5rem;
+    box-shadow: inset 0px -28px 25px -16px rgba(112, 112, 112, 0.486);
+}
+
 h2 {
     margin-bottom: 0;
 }
@@ -27,40 +39,22 @@ h2 {
 }
 
 #wrapper {
-    border: lightgray;
     border-radius: .2em;
-    border-style: solid;
-    border-width: 1px;
     background-color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 1rem;
     margin-bottom: 5em;
-    box-shadow: 0px 0px 5px 5px darkslategray; 
+    box-shadow: 0px 0px 19px 2px rgba(0, 0, 0, 0.5); 
 }
 
-#page-h1 {
-    background-color: transparent;
-    border-style: solid;
-    border-color: black;
-    text-align: center;
-    margin-bottom: 1em;
-    border-radius: .1em;
-    border-width: 3px;
-}
-.row {
-    margin: 0;
-}
 
-.dividing-lines {
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-}
 #copy-button {
     display: none;
     position: absolute;
     z-index: 4;
-    right: 2rem;
-    bottom: 13rem;
+    right: 1rem;
+    bottom: 6rem;
 }
+
 
 /* Footer */
 footer {
@@ -81,10 +75,14 @@ footer {
     height: auto;
     margin-bottom: 1.25rem;
 }
+textarea::placeholder {
+    font-size: 2rem;
+}
 
 /* Password customization boxes */
 #password-options {
     display: none;
+    border: unset;
 }
 .yes-no {
     display: none;
