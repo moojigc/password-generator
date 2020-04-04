@@ -1,4 +1,3 @@
-# password-generator
-Random password generator
+# Random Password Generator
 
-This generator uses JavaScript and the HTML DOM to take input from the user, and create a randomly generated password using arrays of letters, numbers, and special characters.
+This generator uses native JavaScript to create a randomly generated password using arrays of letters, numbers, and special characters based on the user's choices to include or not include certain features.
