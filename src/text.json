@@ -1,0 +1,18 @@
+{
+  "text": {
+    "ja": {
+      "placeholder": "あなたのパスワードがここに発表します。",
+      "invalidLength": "長さは無効です。８字から１２８字にならければなりません。",
+      "errorAlert": "有効な文字量を選択して下さい。",
+      "insecureConfirmation": "このパスワードは危ないかもしれません。それでも続きますか？",
+      "cancelAlert": "もっと長いパスワードと様々な文字はおススメしております。"
+    },
+    "en": {
+      "placeholder": "Your password will be displayed here.",
+      "invalidLength": "Please enter a valid number from 8 to 128.",
+      "errorAlert": "Please enter valid password length and click 'Confirm.'",
+      "insecureConfirmation": "This password may not be secure. Are you sure you wish to proceed?",
+      "cancelAlert": "A longer password or more types of characters are recommended."
+    }
+  }
+}

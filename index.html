@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Montserrat|Nunito&display=swap" rel="stylesheet">
@@ -24,13 +24,10 @@
             <div id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="https://moojigc.github.io/index.html">About <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="https://moojigbc.com/en/about">About <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://moojigc.github.io/portfolio.html">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://moojigc.github.io/contact.html">Contact</a>
+                  <a class="nav-link" href="https://moojigbc.com/en/portfolio">Portfolio</a>
                 </li>
                 <a href="index_ja.html" class="btn btn-primary language-button">
                     日本語
@@ -43,13 +40,10 @@
             <div id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://moojigc.github.io/index.html">About <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://moojigbc.com/en/about">About <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="https://moojigc.github.io/portfolio.html">Portfolio</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="https://moojigc.github.io/contact.html">Contact</a>
+                        <a class="nav-link" href="https://moojigbc.com/en/portfolio">Portfolio</a>
                       </li>
                       <a href="index_ja.html" class="btn btn-primary language-button">
                         日本語
@@ -81,7 +75,7 @@
                                 <label for="uppercase"><h3>Do you require uppercase letters?</h3></label>
                             </div>
                             <div class="row button-choices">
-                                <button id="case-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
+                                <button id="toggle-uppercase" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
                                 <button id="yes-uppercase" class="yes-no btn btn-block btn-success">Yes</button>
                                 <button id="no-uppercase" class="yes-no btn btn-block btn-outline-danger">No</button>
                             </div>
@@ -94,7 +88,7 @@
                                 </h3></label>
                             </div>
                             <div id="numbers-group" class="row button-choices"> 
-                                <button id="numbers-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
+                                <button id="toggle-numbers" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
                                 <button id="yes-numbers" class="yes-no btn btn-block btn-success">Yes</button>
                                 <button id="no-numbers" class="yes-no btn btn-block btn-outline-danger">No</button>
                             </div>
@@ -108,7 +102,7 @@
                                 </h3></label>
                             </div>
                             <div class="row button-choices"> 
-                                <button id="special-toggle" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
+                                <button id="toggle-special" class="toggle btn btn-block btn-outline-secondary">Toggle Yes/No</button>
                                 <button id="yes-special" class="yes-no btn btn-block btn-success">Yes</button>
                                 <button id="no-special" class="yes-no btn btn-block btn-outline-danger">No</button>
                             </div>
@@ -122,7 +116,7 @@
                             <button id="copy-button" class="btn btn-secondary">Copy</button>
                         </div>
                        
-                        <button id="begin-button" onclick="displayOptions()" class="btn btn-primary btn-block btn-lg">Begin</button>
+                        <button id="begin-button" class="btn btn-primary btn-block btn-lg">Begin</button>
                         <button id="generate-button" class="btn btn-primary btn-block btn-lg">Generate</button>
                     </div>
                 </div>
@@ -131,6 +125,6 @@
         
     </div>
     <footer>© Munkhtsogt Battsogt 2020</footer>
-    <script src="assets/javascript.js"></script>
+    <script src="build/index.js"></script>
     
 </body>

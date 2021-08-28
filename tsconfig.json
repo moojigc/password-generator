@@ -1,0 +1,14 @@
+{
+  "include": ["./src", "js"],
+  "compilerOptions": {
+    "outDir": "./js",
+    "moduleResolution": "Node",
+    "noImplicitAny": false,
+    "module": "es6",
+    "lib": ["ESNext", "DOM"],
+    "target": "es5",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
